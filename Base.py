@@ -20,7 +20,10 @@ import requests
 import flask
 import queue
 import queue
-from multiprocessing import Process, Queue
+from multiprocessing import Process, Queue, Manager, Pool
+import greenlet
+from gevent import monkey
+import gevent
 
 
 def required_type(t):
@@ -629,9 +632,9 @@ class BoolFiled(Field):
 class OrmClass(type):
     # 创建跟数据表对应关系映射的元类
 
-    def __new__(cls, name, base, _dict, *args, **kwargs):
+    def __new__(mcs, name, base, _dict, *args, **kwargs):
         if name == "BaseClass":
-            return super().__new__(cls, name, base, _dict)
+            return super().__new__(mcs, name, base, _dict)
         else:
             table_name = name.lower()               # 类名转换成小写对应数据表名称
             fields = {}                             # 定义空字典存储_dict属性，过滤一下自带的双下划线的属性
@@ -641,7 +644,7 @@ class OrmClass(type):
             _dict["t_name"] = table_name            # 把表名和创建过滤的字段添加到_dict 属性里面形成映射关系
             _dict["field"] = fields                 # 创建的对应的映射关系都通过_dict 返回给模型类
 
-            return super().__new__(cls, name, base, _dict)
+            return super().__new__(mcs, name, base, _dict)
 
 
 class BaseClass(metaclass=OrmClass):            # 创建模型类的父类重新给init方法，然后父类指定元类，子类直接继承
@@ -893,12 +896,132 @@ def ed(q):
         g += 1
 
 
-if __name__ == '__main__':
+q = queue.Queue()    # 线程队列（只能在一个进程使用）
+for i in range(50):
+    q.put("http://www.baidu.com")
 
-    l = Queue()
+def main():
+    ts = time.time()
+    so = threading.Thread(target=les)
+    so1 = threading.Thread(target=les)
+    so2 = threading.Thread(target=les)
+    so.start()
+    so1.start()
+    so2.start()
+    so.join()
+    so1.join()
+    so2.join()
+    es = time.time()
+    print("执行时间{}".format(es - ts))
+
+
+def les():
+    url = q.get()
+    requests.post(url=url)
+
+
+def wc():
+    ts = time.time()
+    q3 = Manager().Queue()  # 创建进程队列
+    for i in range(50):
+        q3.put("http://www.baidu.com")
+
+    pop = Pool(3)  # 创建3个进程池
+    for i in range(q.qsize()):
+        pop.apply(les, args=(q,))  # 同步执行，同步比异步快在任务相对少时
+        # pop.apply_async(les, args=(q,))         # 异步执行
+    pop.close()  # 关闭进程池
+    pop.join()  # 主线程等子线程运行结束在执行主线程
+    es = time.time()
+    print("执行时长{}".format(es - ts))
+
+
+def wes():
     for i in range(10):
-        l.put("http://www.baidu.com")
-    e = Process(target=ws, args=(l,))   # 创建队列，把队列以元组形式当作参数传给线程,多个进程共享一个队列对象
-    s = Process(target=ed, args=(l,))
-    # e.start()
-    # s.start()
+        print("第一个任务执行{}次".format(i))
+        requests.post("http://www.baidu.com")
+
+
+def wsd():
+    for i in range(10):
+        print("第二个任务执行{}次".format(i))
+        requests.post("http://www.baidu.com")
+
+
+# monkey.patch_all()
+g1 = greenlet.greenlet(wes)
+g2 = greenlet.greenlet(wsd)
+
+g3 = gevent.spawn(wes)   # 创建两个协程并执行，协程存在线程之中，线程默认不等待协程执行
+g4 = gevent.spawn(wsd)   # 第一个参数执行任务，
+# g3.join()               # 让线程等待协程，时间参数不传默认等待协程执行完毕
+# g4.join()                # 两个任务不是同步执行，先执行完任务1在执行任务2，默认不切换
+
+
+def time_count(func):                           # 计算时间的装饰器
+    def wrapper(*args, **kwargs):
+        print("开始执行")
+        start_time = time.time()
+        func(*args, **kwargs)
+        end_time = time.time()
+        print("执行结束，总耗时{}s".format(end_time - start_time))
+    return wrapper
+
+
+def green_work(q, gname):                           # 创建协程任务
+    count = 0
+    while not q.empty():
+        try:
+            url = q.get(timeout=0.01)
+            requests.get(url)
+            gevent.sleep(0.001)
+            count += 1
+        except Exception as e:
+            raise e
+    print("---协程{}执行了{}次任务----".format(gname, count))
+
+
+def thread_work(q, tname):                          # 创建3个线程，运行协程
+    g_list = []
+    for i in range(5):
+        gname = "{}_线程_{}".format(tname, i)
+        print("线程名称{}".format(gname))
+        g = gevent.spawn(green_work, q, gname)
+        g_list.append(g)
+    gevent.joinall(g_list)                          # 可以接收一个列表，主线程等待子线程
+
+
+def process_work(q, pname):                         # 创建2进程任务，运行线程
+    t_list = []
+    for i in range(3):
+        tname = "{}_进程_{}".format(pname, i)
+        print("创建线程{}".format(tname))
+        t = threading.Thread(target=thread_work, args=(q, tname))
+        t_list.append(t)
+        t.start()
+    for t in t_list:                                # 让主线程等待子线程
+        t.join()
+
+
+@time_count
+def main():                                         # 创建队列函数
+    q = Queue()
+    for i in range(1, 10001):                       # 创建10000任务放入队列
+        q.put('http://127.0.0.1:5000/')             # 向队列写数据
+    print("队列创建完成队列数{}".format(q.qsize()))
+    pro_list = []                                       # 创建列表存放进程
+    for j in range(2):                                  # 循环创建两个线程放到列表，然后启动
+        pname = "进程_{}".format(j)
+        print("线程名称{}".format(pname))
+        p = Process(target=process_work, args=(q, pname))
+        p.start()
+        pro_list.append(p)
+    for p in pro_list:                                  # 让主进程等待子进程
+        p.join()
+
+
+if __name__ == '__main__':
+    main()
+
+
+

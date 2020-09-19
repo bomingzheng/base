@@ -1,0 +1,13 @@
+{
+    "url": "https://api.yachenad.cn:443/api/Channelapi/addreferral",
+    "data" : {
+              "nonce": "123456", "timestamp": 1583868236, "token": "sK5hPs9d8kzuMED25u", "client_id": 100074085,
+              "signaure": "ed78a1645ffd51952b0577918f8fc203b664926e", "channel_id": 8513, "vip_id": 9093,
+              "chapter_idx": 7, "chapter_idx": 12, "book_id": 11000072587, "name": 1, "cost": 0, "push": 2
+             },
+
+    "headers":{
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+    "method": "POST"
+}

@@ -1,4 +1,0 @@
-url: http://api.bcex.cloud/api_market/placeOrder
-data: {market: USDT, token: ETH, market_type: 1, type: 1,price: 0.01, amount: 2,api_key: c8863ec11ee3d908ae40fc98a98f4804, sign: qa}
-headers: {Content-Type: application/json}
-method: POST
