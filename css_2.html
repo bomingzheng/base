@@ -2,41 +2,54 @@
 	<html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>position定位详解</title>
+		<title>定位详解</title>
 		<style type="text/css">
-			.box{
-				width: 500px;
-				height: 300px;
-				background: bisque;
-			}
-			.box1{
-				width: 500px;
-				height: 300px;
-				background: rosybrown;
-
-
-			}
+			.box1{width: 500px;
+			height: 2600px;
+			background: #9297a2;}
 			.box2{
-				width: 600px;
-				height: 300px;
-				background: yellow;
-
+			width: 1000px;
+			height: 260px;
+			background: chocolate;
+			/*position: absolute;*/
+			/*top: 100px;*/
+			/*left: 200px;*/
 			}
 			.box3{
-				width: 600px;
-				height: 300px;
-				background: chocolate;
-
+			width: 500px;
+			height: 260px;
+			background: bisque;
+			/*	!*绝对定位position*!*/
+			/*	!*position: absolute; 绝对定位,从父类开始寻找绝对定位，父类不是绝对定位再向外面找，最终按照body来定位*!*/
+			/*	position: absolute;*/
+			/*	left: 100px;*/
+			/*	top:50px;*/
+			/*	相对定位*position: relative;/
+				position: relative;
+				left: 50px;
+				top: 30px; */
+				position: fixed;
+				/**/
+				left: 300px;
+				top: 200px;
 			}
-
+			.box4{
+			width: 500px;
+			background: #ff4285;
+			height: 260px;
+				position: relative;
+				left: 50px;
+				top: 30px;
+		}
 		</style>
-	<title>首页</title>
-		<body>
-		<div class="box1">box</div>
-		<div class="box">box1
-			<div class="box2">box2</div>
-			<div class="box3">box3</div>
-		</div>
-	</body>
-	</head>
+		</head>
+	<body>
+	<div class="box1">box1</div>
+	<div class="box2">box2
+		<div class="box3">box3</div>
+		<div class="box4">box4</div>
+	</div>
+
+</body>
+
 </html>
