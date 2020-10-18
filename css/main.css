@@ -80,7 +80,7 @@ body{
     font: normal 14px/40px "微软雅黑";
     text-indent: 75px;
     float: left;
-    background-image: url("../img/41.png");
+    background-image: url("../img/↓.png");
     background-repeat: no-repeat;
     background-position: 85%;
 }
@@ -113,6 +113,7 @@ body{
     margin: 25px;
 
 }
+/*内容标题*/
 .pro_title{
     width: 100%;
     height: 50px;
@@ -124,24 +125,99 @@ body{
     border-top-right-radius:10px ;
     /*方向半径不减去像素*/
 }
+/*内容正文样式*/
 .pro_info p{
     font: normal 14px/35px "微软雅黑" ;
     color: #000000;
 }
-
+/*内容删除按钮*/
 .pro_del {
     font: normal 14px/35px "微软雅黑" ;
     color: white;
     width: 70px;
     height: 33px;
-    /*text-align: center;*/
     background: darkgoldenrod;
     border-radius: 10px;
     margin-top: 17px;
     margin-left: 35%;
 }
+/*内容区域添加按钮样式*/
 .pro_info img{
     margin-top: 45px;
     width: 100px;
     height: 100px;
+}
+
+/*弹窗样式*/
+.alter{
+    position: fixed;
+    left: 30%;
+    top: 120px;
+    height: 550px;
+    width: 450px;
+    background: white;
+    border: solid 1px #9297a2;
+    border-radius: 20px;
+    padding:0 20px;
+}
+.alter_title{
+    font: bold 26px/40px "微软雅黑";
+    color: fuchsia;
+    text-align: center;
+    margin-top: 20px ;
+}
+.alter_quit{
+    position: absolute;
+    top:10px;
+    right: 15px;
+}
+.alter_input{
+    width: 100%;
+    height: 20px;
+    font: normal 18px/40px "微软雅黑";
+    margin-top: 30px;
+    color: fuchsia;
+
+}
+.alter_input label{
+    width: 50px;
+    font: normal 18px/40px "微软雅黑";
+    color: fuchsia;
+
+
+}
+.alter_input input{
+    height: 30px;
+    width: 300px;
+    border-radius: 5px;
+    text-indent: 10px;
+    border: solid 1px black;
+}
+.pro_desc{
+    font: normal 18px/40px "微软雅黑";
+    color: fuchsia;
+    margin-top: 30px;
+}
+.pro_desc textarea{
+    margin-top: 10px;
+    margin-left: 40px;
+    width: 85%;
+    height: 150px;
+    border: solid 1px black;
+    border-radius: 5px;
+
+}
+.pro_tj{
+     text-align: center;
+}
+.tj{
+     margin-top: 20px;
+    width: 100px;
+    height: 50px;
+    background: sienna;
+    border-radius: 10px;
+    border: solid 1px white;
+    font: normal 18px/50px "Microsoft YaHei UI";
+    color: white;
+
 }
