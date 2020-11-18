@@ -1,0 +1,138 @@
+<DOCTYPE html>                  <!--声明版本-->
+<html lang="zh-CN">             <!一个页面只有一个html标签,一般标记页面默认语言-->
+    <head>
+        <!头信息标签-->
+        <meta charset="UTF-8">    <! 声明编码格式-->
+        <title> 练习HTML</title>    <!页面标题标签-->
+        <link rel="stylesheet" href="链接css文件的地址">
+    </head>
+    <body>
+
+        <!主题部分页面显示内容,这个是注释-->
+        <h1 style="background: burlywood">hello world</h1>
+
+    <h3 >列表</h3>
+        <ul style="background: bisque">
+                <!--ul配合li组合使用代表一列数据,无序的一行数据-->
+            <li>武术</li>
+            <li>新闻</li>
+            <li>资讯</li>
+        </ul>
+      <ol style="background: azure">
+                <!--有序的一行数据-->
+          <li>体育</li>
+          <li>风景</li>
+          <li>影视</li>
+      </ol>
+
+    <hr>
+        <!--画一条水平线，也是单个出现-->
+        <hr>
+        <table border="2">表格
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>学号</th>
+                <th>性别</th>
+            </tr>
+            <tr>
+                <td>李云龙</td>
+                <td>45</td>
+                <td>110</td>
+                <td>男</td>
+            </tr>
+            <tr>
+                <td>红拂女</td>
+                <td>21</td>
+                <td>112</td>
+                <td>女</td>
+            </tr>
+        </table>
+        <!--border表示边框，tr定义表格行，th定义表头，td定义表格单元格-->
+    <h5>表单</h5>
+        <form action="" method="get">
+            <label for="">掌握技能</label><br>
+            <input type="checkbox" name="hobby" value="接口自动化">接口自动化
+            <input type="checkbox" name="hobby" value="ui自动化">UI自动化
+            <input type="checkbox" name="hobby" value="测试开发">测开 <br><br>
+            <label for="user">邮箱账号</label>
+            <input type="text" name="user" id="user">
+            <!-- label副属性用来关联id，for关联id的值，点击key鼠标会自动进入输入框-->
+            <br>
+            <label for="name">昵称</label>
+            <input type="text" name="name" id="name">
+            <br>
+            <label for="pwd1">密码</label>
+            <input type="password" name="pwd1" id="pwd1"><br>
+            <label for="pwd2">确认密码</label>
+            <input type="password" name="pwd2" id="pwd2"><br>
+            <label for="">性别:</label>
+            <input type="radio" name="gender" value="男">男
+            <input type="radio" name="gender" value="女">女
+            <br>
+            <label for="y">生日:</label>
+                <select name="日期" id="y">
+                    <option value="2000">2000</option>
+                    <option value="1998">1998</option>
+                    <option value="1997">1997</option>
+                    <option value="1996">1996</option>
+                </select>年
+                <select name="m" id="m">
+                    <option value="12">12</option>
+                    <option value="11">11</option>
+                    <option value="10">10</option>
+                    <option value="9">9</option>
+                </select>月
+                <select name="d" id="d">
+                    <option value="30">30</option>
+                    <option value="29">29</option>
+                    <option value="28">28</option>
+                    <option value="27">27</option>
+                </select>日<br><br>
+
+
+            <label for="xx">详细地址:</label>
+            <textarea name="" id="xx" cols="36" rows="1">在这里输入内容...</textarea>
+            <br><br>
+            <input type="image" alt="提交" src="img/300.jpg">
+            <!--image图片按钮链接一张图片-->
+            <br><br>
+            <input type="submit" value="提交">&nbsp;
+            <input type="reset" value="重置">&nbsp;
+            <input type="button" value="普通按钮">&nbsp;
+            <input type="file" name=png value="点击上传"><br><br>
+            <input type="hidden" name="token" value="wsa04efd9p5345rt">
+            <!-- hidden:隐藏的表单域，不在页面展示，提交时自动添加到请求-->
+            <br>
+            <iframe src="https://www.baidu.com" width="1300" frameborder="1" height="560"></iframe>
+            <!--iframe内联框架，可以连接一个网页进来-->
+        </form>
+        <br>
+
+
+        <hr>
+    <p>
+        <!--strong行内元素，语义为强调内容，表示非常重要，内容效果加粗-->
+        <strong>害！可爱文案大赛冠军来也！✧ʕ̢̣̣̣̣̩̩̩̩·͡˔·ོɁ̡̣̣̣̣̩̩̩̩✧ 注意前方 众多可爱 蹦跶蹦跶的走来了 ´͈ ᵕ `</strong>
+        <br> <!--段落换行，不是成对出现-->
+        <i>1.能不能给我发一毛钱 免得我们以后一毛钱关系都没有</i><br>
+        <!--i标签字体斜体-->
+        <!--em标签语义为强调内容，表示重要（倾斜效果）-->
+
+        <em>2.告诉桃花 可以开了</em><br>
+        <!--b标签行内元素，字体加粗-->
+        <b>3.告诉春天桃花不必开了，我等的人已经来了</b>
+
+    </p>                <!--p标签是表示段落标签，规定是一个完整段落，有空格和换行也显示一行-->
+        <hr>
+   <div><em>喜迎国庆欢度中秋</em></div>
+        <!-- 块标签没有特殊语义就表示一块内容，一个div就是一行内容，会换行,em标签字体倾斜-->
+        <img src="img/12.png" alt="中秋快乐">
+        <br>
+        <!--如果图片没加载出来，显示alt的文字-->
+        <!--a标签是链接标签-->
+        <a href="https://www.baidu.com">百度</a><br>
+    <span>python</span>&nbsp;&nbsp;
+    <span>java</span>   <!--行内块标签,不会换行-->
+    </body>
+    </html>
