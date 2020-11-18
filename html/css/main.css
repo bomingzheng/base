@@ -1,0 +1,223 @@
+body{
+    background: azure;
+}
+/*设置菜单样式*/
+.top_money{
+    height: 100px;
+    background: #03c;
+    width:100%;
+}
+
+/*设置菜单中标题的样式*/
+.title{
+    width: 20%;
+    color: white;
+    font: normal 24px/100px "微软雅黑";
+    text-align: center;
+    float: left;}
+
+/*设置5个菜单的样式*/
+.money_list {
+    width: 55%;
+    height: 100px;
+    float:left;}
+
+/*设置菜单中每个菜单样式*/
+.money_list li{
+    width: 120px;
+    height: 100px;
+    color: white;
+    list-style: none;
+    text-align:center ;
+    font: normal 16px/100px "微软雅黑";
+    float:left;}
+
+/*设置鼠标悬浮的背景色*/
+
+.money_list li:hover{
+    background:darkblue;
+}
+
+/*注销的样式设置*/
+.money_top_user{
+    float: right;
+    width: 20%;
+    margin: 40px 0;
+}
+.money_top_user a{
+    color: white;
+    width: 77px;
+    height: 25px;
+    font: normal 14px/50px "微软雅黑";
+    margin: 35px 30px;
+}
+
+
+/*侧边栏样式*/
+.left_money{
+    position: absolute;
+    left: 0;
+    top: 135px;
+    width: 20%;
+    height: 0;
+    color: black;
+    background: white;
+}
+
+.left_title{
+    width: 100%;
+    height: 60px;
+    float: left;
+    font: normal 18px/60px "微软雅黑";
+    color: white;
+    text-indent: 75px;
+    background: #0033cc;
+}
+.left_list li{
+    height: 40px;
+    width: 100%;
+    border-bottom: solid 1px aliceblue;
+    font: normal 14px/40px "微软雅黑";
+    text-indent: 75px;
+    float: left;
+    background-image: url("../img/↓.png");
+    background-repeat: no-repeat;
+    background-position: 85%;
+}
+.left_list div{
+    height:20px;
+    width: 15px;
+    background-repeat: no-repeat;
+    float: left;
+    margin-top: 10px;
+    margin-right: 45px;}
+
+/*主题内容样式*/
+.contents{
+    width: 75%;
+    height: 1000px;
+    position:absolute;
+    margin-top: 15px;
+    left: 300px;
+    padding: 0;
+    float: right;
+}
+/*内容信息*/
+.pro_info{
+    width: 185px;
+    height: 190px;
+    border: solid 1px #9297a2;
+    float: left;
+    text-align: center;
+    border-radius: 10px; /*边角半径减去10px*/
+    margin: 25px;
+
+}
+/*内容标题*/
+.pro_title{
+    width: 100%;
+    height: 50px;
+    background: darkgoldenrod;
+    font: normal 18px/50px "微软雅黑";
+    color: #000000;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius:10px ;
+    /*方向半径不减去像素*/
+}
+/*内容正文样式*/
+.pro_info p{
+    font: normal 14px/35px "微软雅黑" ;
+    color: #000000;
+}
+/*内容删除按钮*/
+.pro_del {
+    font: normal 14px/35px "微软雅黑" ;
+    color: white;
+    width: 70px;
+    height: 33px;
+    background: darkgoldenrod;
+    border-radius: 10px;
+    margin-top: 17px;
+    margin-left: 35%;
+}
+/*内容区域添加按钮样式*/
+.pro_info img{
+    margin-top: 45px;
+    width: 100px;
+    height: 100px;
+}
+
+/*弹窗样式*/
+.alter{
+    position: fixed;
+    left: 30%;
+    top: 120px;
+    height: 550px;
+    width: 450px;
+    background: white;
+    border: solid 1px #9297a2;
+    border-radius: 20px;
+    padding:0 20px;
+}
+.alter_title{
+    font: bold 26px/40px "微软雅黑";
+    color: fuchsia;
+    text-align: center;
+    margin-top: 20px ;
+}
+.alter_quit{
+    position: absolute;
+    top:10px;
+    right: 15px;
+}
+.alter_input{
+    width: 100%;
+    height: 20px;
+    font: normal 18px/40px "微软雅黑";
+    margin-top: 30px;
+    color: fuchsia;
+
+}
+.alter_input label{
+    width: 50px;
+    font: normal 18px/40px "微软雅黑";
+    color: fuchsia;
+
+
+}
+.alter_input input{
+    height: 30px;
+    width: 300px;
+    border-radius: 5px;
+    text-indent: 10px;
+    border: solid 1px black;
+}
+.pro_desc{
+    font: normal 18px/40px "微软雅黑";
+    color: fuchsia;
+    margin-top: 30px;
+}
+.pro_desc textarea{
+    margin-top: 10px;
+    margin-left: 40px;
+    width: 85%;
+    height: 150px;
+    border: solid 1px black;
+    border-radius: 5px;
+
+}
+.pro_tj{
+     text-align: center;
+}
+.tj{
+     margin-top: 20px;
+    width: 100px;
+    height: 50px;
+    background: sienna;
+    border-radius: 10px;
+    border: solid 1px white;
+    font: normal 18px/50px "Microsoft YaHei UI";
+    color: white;
+
+}
