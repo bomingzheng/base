@@ -24,13 +24,14 @@ body{
 
 /*设置菜单中每个菜单样式*/
 .money_list li{
-    width: 120px;
+    width: 20%;
     height: 100px;
     color: white;
-    list-style: none;
+
     text-align:center ;
     font: normal 16px/100px "微软雅黑";
-    float:left;}
+    float:left;
+}
 
 /*设置鼠标悬浮的背景色*/
 
@@ -54,57 +55,59 @@ body{
 
 
 /*侧边栏样式*/
-.left_money{
+.left_sidebar{
     position: absolute;
     left: 0;
-    top: 135px;
-    width: 20%;
+    top: 150px;
+    width: 15%;
     height: 0;
     color: black;
     background: white;
 }
 
-.left_title{
+.sidebar_title{
     width: 100%;
     height: 60px;
     float: left;
     font: normal 18px/60px "微软雅黑";
     color: white;
-    text-indent: 75px;
+    text-indent: 35%;
     background: #0033cc;
 }
-.left_list li{
-    height: 40px;
+.sidebar_list li h3{
+    height: 55px;
     width: 100%;
     border-bottom: solid 1px aliceblue;
-    font: normal 14px/40px "微软雅黑";
-    text-indent: 75px;
+    font: normal 14px/55px "微软雅黑";
+    text-indent: 35%;
     float: left;
-    background-image: url("../img/↓.png");
+    color: black;
+    background-image: url(../img/↓.png);
     background-repeat: no-repeat;
-    background-position: 85%;
+    background-position:75%;
 }
-.left_list div{
-    height:20px;
-    width: 15px;
-    background-repeat: no-repeat;
+.sidebar_list li ul a{
     float: left;
-    margin-top: 10px;
-    margin-right: 45px;}
+    width: 100%;
+    color: blue;
+    font: normal 16px/40px "Microsoft YaHei UI";
+    text-indent: 35%;
+}
+
 
 /*主题内容样式*/
 .contents{
-    width: 75%;
-    height: 1000px;
+    width: 80%;
+    height: 100%;
     position:absolute;
-    margin-top: 15px;
-    left: 300px;
+    margin-top: 30px;
+    left: 20%;
     padding: 0;
     float: right;
 }
 /*内容信息*/
 .pro_info{
-    width: 185px;
+    width: 190px;
     height: 190px;
     border: solid 1px #9297a2;
     float: left;
@@ -151,20 +154,21 @@ body{
 /*弹窗样式*/
 .alter{
     position: fixed;
-    left: 30%;
-    top: 120px;
-    height: 550px;
-    width: 450px;
+    left: 40%;
+    top: 25%;
+    height: 50%;
+    width: 22%;
     background: white;
     border: solid 1px #9297a2;
     border-radius: 20px;
     padding:0 20px;
 }
 .alter_title{
-    font: bold 26px/40px "微软雅黑";
-    color: fuchsia;
+    font: bold 22px/40px "微软雅黑";
+    color: blue;
     text-align: center;
-    margin-top: 20px ;
+    margin-top: 15px ;
+    margin-left: 45px;
 }
 .alter_quit{
     position: absolute;
@@ -173,51 +177,55 @@ body{
 }
 .alter_input{
     width: 100%;
-    height: 20px;
-    font: normal 18px/40px "微软雅黑";
-    margin-top: 30px;
-    color: fuchsia;
-
+    height: 35px;
+    font: normal 15px/30px "微软雅黑";
+    margin-top: 25px;
+    margin-left: 35px;
+    color: blue;
 }
 .alter_input label{
-    width: 50px;
-    font: normal 18px/40px "微软雅黑";
-    color: fuchsia;
-
-
+    font: normal 15px/20px "微软雅黑";
+    color: blue;
 }
 .alter_input input{
-    height: 30px;
-    width: 300px;
+    height: 25px;
+    width: 60%;
+    margin-left: 3%;
     border-radius: 5px;
     text-indent: 10px;
     border: solid 1px black;
+    font: normal 12px/30px "微软雅黑"
 }
 .pro_desc{
-    font: normal 18px/40px "微软雅黑";
-    color: fuchsia;
-    margin-top: 30px;
+    font: normal 15px/35px "微软雅黑";
+    color: blue;
+    margin-top: 18px;
+    margin-left: 8%;
 }
 .pro_desc textarea{
-    margin-top: 10px;
-    margin-left: 40px;
-    width: 85%;
-    height: 150px;
+    margin-left: 25%;
+    width: 240px;
+    height: 70px;
     border: solid 1px black;
     border-radius: 5px;
+    padding-left: 5px;
+    font: normal 12px/30px "Microsoft YaHei UI";
+
+
+
 
 }
 .pro_tj{
      text-align: center;
 }
 .tj{
-     margin-top: 20px;
-    width: 100px;
-    height: 50px;
-    background: sienna;
-    border-radius: 10px;
-    border: solid 1px white;
-    font: normal 18px/50px "Microsoft YaHei UI";
-    color: white;
-
+     margin-top: 10px;
+    margin-left: 20px;
+     width: 20%;
+     height: 50px;
+     background: blue;
+     border-radius: 10px;
+     border: solid 1px white;
+     font: normal 15px/30px "Microsoft YaHei UI";
+     color: white;
 }
