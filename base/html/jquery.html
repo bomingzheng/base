@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery</title>
+			<!--	jquery是js的一个封装的函数库-->
+
+		<!--	通过 script标签引入jquery-->
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<style type="text/css">
+		.dv2{
+		height:200px;
+		background:pink;
+		}
+	</style>
+
+	<!--	jquery选择器：选择规则和css样式一样，使用helg来判断
+	1.id选择器2.类选择器3.标签选择器4.层级选择器5.属性选择器-->
+	<script type="text/javascript">
+		$(function () {//代替window.onload 来等待页面加载完在执行
+			//把通过id来动态设置css的样式, id括号的参数要加#号，css的参数以字典的形式赋值
+			// $("#box1").css({width:"300px", height:"200px", background:"blue"});
+			//class属性.类名选择器括号的参数要加.
+			// $(".btn1").css({width:"300px", height:"200px", background:"pink"});
+			//标签选择器,标签是个选择集时，可以直接设置样式，默认全部设置
+			// $("li").css({width:"300px", height:"200px", background:"black", fontSize:"9px"});
+			// 对同胞设置样式，prev该节点前面挨着他的节点
+			// var li3 =$("#li3").css({width:"100px", height:"20px", background:"black", fontSize:"9px"});
+			// li3.prev().css({width:"100px", height:"20px", background:"pink", fontSize:"9px"});
+			// 链式调用
+			// $("#li3").css({width:"100px", height:"20px", background:"black", fontSize:"9px"}).prev().css({width:"100px", height:"20px", background:"pink", fontSize:"9px"})
+		//	选择该节点前面所有的节点，prevAll
+		// 	$("#li3").prevAll().css({width:"100px", height:"20px", background:"pink", fontSize:"9px"})
+		//	选择该节点后面挨着的第一个节点，next
+		// 	$("#li3").next().css({width:"100px", height:"20px", background:"pink", fontSize:"9px"})
+		//	选择该节点后面所有的节点，nextAll
+		// 	$("#li3").nextAll().css({width:"100px", height:"20px", background:"pink", fontSize:"9px"})
+		//	选择所有的兄弟节点
+		// 	$("#li3").siblings().css({width:"100px", height:"20px", background:"pink", fontSize:"9px"})
+		//	选择父节点parent
+		// 	$("ul").parent().css({background:"red"})
+		//	选择子节点 children,设置父节点下所有子节点的css样式
+		// 		$("ul").children().css({fontSize:"40px"})
+		//	选择内容下某个元素，进行查找，find
+		// 		$("div").find(".cs")  // 查找div内容下class名等于cs的
+		// 	$("div").find("#sc")  // 查找内容下id=sc
+		// 	$("div").find("#sc li")  // 查找内容下id=sc下li的标签
+		//	过滤选择器，has包含
+		// 	$(".dv2").has(".sp").css({background:"pink"})    //类名是dv2的，并且包含a标签的设置样式
+		//	过滤器，不包含 not
+		// 	$("#div1 div").not(".dv2").css({background:"pink"})  //id=div1下面的div标签，不包含类名是dv2的设置样式
+		//	过滤器，等于某个元素filter
+		// 	$("#div1 div").filter(".dv2").css({background:"pink"})
+		//	过滤器，索引 eq
+		// 	$("li").eq(1).css({background:"pink"});  //选择li标签的下标为1的设置样式
+
+		//	jquery操作样式，获取元素样式
+		// 	$("li").css("background")    // 获取标签的背景色
+		//	jquery修改元素样式
+		// 	$("li").css("width", "100px")    // 设置元素高度，键和值引号引起来，多个样式用{}括起来，key不用引号
+		//	给元素添加属性 addClass
+		// 	$("li").addClass("pink");   //给定标签添加属性，适合弹出弹框
+		//	给元素删除属性 removeClass
+		// 	$("li").removeClass("pink");	//给定标签移除属性，适合关闭弹窗
+		//	重复切换样式 toggleClass
+		// 	$("li").toggleClass("pink");	//适用于一级二级列表伸缩样式
+		//	jquery 效果函数
+		// 	animate()  		//对被选元素应用自定义的动画
+		// 	fadein()		//逐渐改变被选元素的不透明度，从隐藏到可见
+		// 	fadeOut()		//逐渐改变被选元素的不透明度，从可见到隐藏
+		// 	hide()  		//隐藏被选元素
+		// 	show()			//显示被选元素
+		// 	slideDown()		//通过调整高度来华东显示被选元素
+		// 	slideToggle()	//通过高度变化滑动隐藏和显示元素，并在切换完成后可选地触发一个回调函数，
+		// 					// speed动画时长("slow","normal", or "fast")或表示动画时长的毫秒数值(如：1000)
+		// 					// easing:用来指定切换效果，默认是"swing"，可用参数"linear"
+		// 					// fn:在动画完成时执行的函数，每个元素执行一次。
+		//
+		// 	slideUp()		//通过调整高度来滑动隐藏被选元素
+		// 	stip()			//停止在被选元素上运行动画
+		// 	toggle()		//对被选元素进行隐藏和显示的切换
+		//	click()事件
+		// 		$("li").click(function (){
+		// 		    //内部的this指的是原生对象，使用jquery对象$(this)调用
+		// 		});
+		//	jquery操作属性
+		// 	var herf= $("a").eq(0).attr("href");     //读取元素的属性和值
+		// 	$("a").attr("href",herf);				//给元素设置属性，传两个值
+		// 	$("a").eq(2).removeAttr("href");		//移除元素的属性
+		//表单操作
+		// 	console.log($(".dv2").text());		 //	获取元素文本
+		// 	console.log($(".dv2").html());	 // 设置或返回所选元素的内容（包括html标记）
+		/* 	$("#btm").click(function (){
+			    var user = $("#user").val();
+				var pwd = $("#pwd").val();
+				if (user.length<=0 || user.length>=12)
+				{
+				    alert("输入账号长度不符合");
+				}
+				else {
+						alert(user);
+					}});		*/	// 设置或返回form表单字段的值前端进行校验
+
+			// $(".dv2").append("<h1>欢迎光临</h1>"); 	  	//在被选元素里面的结尾插入内容
+			// $(".dv2").prepend("<h1>义薄云天</h1>"); 		// 在被选元素的开头插入内容
+			// $(".dv2").after("<h1>豪情万丈</h1>");		// 	在被选元素外面的后面插入内容
+			// $(".dv2").before("<h1>迎风摇摆</h1>");		//在被选元素的外面的前面前插入内容
+			// $("ul").remove();			//删除所选节点和子节点
+			$("ul").empty(); 		//删除所选元素的子节点
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		}
+		);
+	</script>
+
+
+
+</head>
+<body>
+<div class="dv2">
+	<span>你好</span>
+	<ul>
+		<li><a href="http://www.baidu.com">1</a></li>
+		<li><a href="">2</a></li>
+		<li><a href="">3</a></li>
+		<li><a href="">4</a></li>
+		<li><a href="">5</a></li>
+	</ul>
+<!--	<form action="">-->
+<!--		账号<input type="text" id="user" name="user"><br>-->
+<!--		密码<input type="password" id="pwd" name="pwd"><br>-->
+<!--		<input id="btm" type="submit"  value="点击提交">-->
+<!--	</form>-->
+
+
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="26环境" uuid="2b4f1d24-f2df-4c9f-8853-eb0b37f8f949">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://192.168.0.26:3306</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="25环境" uuid="8df8bfbc-d66d-4352-82a8-b3fa86fdc2c0">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://192.168.0.25:3306</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="24环境" uuid="7de28bbb-a686-4b82-933a-c389688c986e">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://192.168.0.24:3306</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="154环境" uuid="ab32e2be-be78-466a-9cbf-c1ef07d6edb0">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://192.168.0.154:3306</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="154_121环境" uuid="43089227-4f57-4e11-9366-12979df34ac7">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3307</jdbc-url>
+    </data-source>
+  </component>
+</project>

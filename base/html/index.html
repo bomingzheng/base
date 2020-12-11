@@ -3,9 +3,12 @@
 
 	<head>
 		<meta charset="UTF-8">
+		<title>TESTBED</title>
 		<link rel="stylesheet" href="css/reset.css" type="text/css">
 		<link rel="stylesheet" href="css/main.css" type="text/css">
-	<title>TESTBED</title>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+
 	</head>
 	<body>
 		<!--顶部菜单-->
@@ -37,35 +40,35 @@
 			<ul>
 				<li>
 					<h3>接口管理</h3>
-					<ul>
+					<ul class="hide">
 						<li ><a href="">添加接口</a></li>
 						<li ><a href="">接口列表</a></li>
 				</ul>
 				</li>
 				<li>
 					<h3>用例管理</h3>
-					<ul>
+					<ul class="hide">
 						<li ><a href="">添加接口</a></li>
 						<li ><a href="">接口列表</a></li>
 					</ul>
 				</li>
 				<li>
 					<h3>测试计划</h3>
-					<ul>
+					<ul class="hide">
 						<li ><a href="">添加接口</a></li>
 						<li ><a href="">接口列表</a></li>
 					</ul>
 				</li>
 				<li>
 					<h3>测试报告</h3>
-					<ul>
+					<ul class="hide">
 						<li ><a href="">添加接口</a></li>
 						<li ><a href="">接口列表</a></li>
 					</ul>
 				</li>
 				<li>
 					<h3>环境管理</h3>
-					<ul>
+					<ul class="hide">
 						<li ><a href="">添加接口</a></li>
 						<li ><a href="">接口列表</a></li>
 					</ul>
@@ -110,15 +113,16 @@
 			<div class="pro_del">
 				<a href="http://www.baidu.com">删除</a></div>
 		</div>
-		<div class="pro_info">
-			<a href="http://www.baidu.com"><img src="img/puls.png" alt=""></a>
+		<div class="pro_info" id="add">
+			<img src="img/add.png" alt="">
 			
 		</div>
 	</div>
 	<!--弹窗部分-->
+	<div class="back hide">     <!--	创建一个背景盒子，当弹窗出现遮住页面所有元素，只能在弹窗页操作-->
 	<div class="alter">
 		<div class="alter_title">新增项目</div>
-		<div class="alter_quit">
+		<div class="alter_quit" >
 			<img src="img/close.png">
 		</div>
 		<form action="">
@@ -142,6 +146,7 @@
 				<input class="tj" type="button" value="提交">
 			</div>
 		</form>
+	</div>
 	</div>
 	</body>
 	</html>

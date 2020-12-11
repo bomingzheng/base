@@ -1,6 +1,4 @@
-body{
-    background: azure;
-}
+
 /*设置菜单样式*/
 .top_money{
     height: 100px;
@@ -10,15 +8,15 @@ body{
 
 /*设置菜单中标题的样式*/
 .title{
-    width: 20%;
+    width: 320px;
     color: white;
-    font: normal 24px/100px "微软雅黑";
+    font: normal 26px/90px "微软雅黑";
     text-align: center;
     float: left;}
 
 /*设置5个菜单的样式*/
 .money_list {
-    width: 55%;
+    width: 50%;
     height: 100px;
     float:left;}
 
@@ -36,20 +34,20 @@ body{
 /*设置鼠标悬浮的背景色*/
 
 .money_list li:hover{
-    background:darkblue;
+    background:royalblue;
 }
 
 /*注销的样式设置*/
 .money_top_user{
     float: right;
-    width: 20%;
-    margin: 40px 0;
+    width: 231px;
+    margin: 40px ;
 }
 .money_top_user a{
     color: white;
-    width: 77px;
-    height: 25px;
-    font: normal 14px/50px "微软雅黑";
+    width: 80px;
+    height: 35px;
+    font: normal 16px/50px "微软雅黑";
     margin: 35px 30px;
 }
 
@@ -58,58 +56,53 @@ body{
 .left_sidebar{
     position: absolute;
     left: 0;
-    top: 150px;
-    width: 15%;
-    height: 0;
+    top: 140px;
+    width: 250px;
     color: black;
-    background: white;
 }
 
 .sidebar_title{
     width: 100%;
     height: 60px;
     float: left;
-    font: normal 18px/60px "微软雅黑";
+    font: normal 20px/60px "微软雅黑";
     color: white;
     text-indent: 35%;
-    background: #0033cc;
+    background: #03c;
 }
 .sidebar_list li h3{
     height: 55px;
     width: 100%;
     border-bottom: solid 1px aliceblue;
-    font: normal 14px/55px "微软雅黑";
+    font: normal 18px/60px "微软雅黑";
     text-indent: 35%;
     float: left;
     color: black;
     background-image: url(../img/↓.png);
     background-repeat: no-repeat;
-    background-position:75%;
+    background-position:200px;
 }
 .sidebar_list li ul a{
     float: left;
     width: 100%;
-    color: blue;
-    font: normal 16px/40px "Microsoft YaHei UI";
-    text-indent: 35%;
+    color:#03c;
+    font: normal 15px/30px "Microsoft YaHei UI";
+    text-indent: 40%;
 }
-
 
 /*主题内容样式*/
 .contents{
-    width: 80%;
-    height: 100%;
+    width: 75%;
     position:absolute;
-    margin-top: 30px;
-    left: 20%;
-    padding: 0;
+    margin-top: 15px;
+    left: 300px;
     float: right;
 }
 /*内容信息*/
 .pro_info{
     width: 190px;
     height: 190px;
-    border: solid 1px #9297a2;
+    border: solid 1px #03c;
     float: left;
     text-align: center;
     border-radius: 10px; /*边角半径减去10px*/
@@ -120,9 +113,9 @@ body{
 .pro_title{
     width: 100%;
     height: 50px;
-    background: darkgoldenrod;
-    font: normal 18px/50px "微软雅黑";
-    color: #000000;
+    background: #03c;
+    font: normal 16px/50px "微软雅黑";
+    color: white;
     text-align: center;
     border-top-left-radius: 10px;
     border-top-right-radius:10px ;
@@ -130,34 +123,48 @@ body{
 }
 /*内容正文样式*/
 .pro_info p{
-    font: normal 14px/35px "微软雅黑" ;
-    color: #000000;
+    font: normal 15px/30px "微软雅黑" ;
+    color: black;
+    margin-top: 8px;
 }
 /*内容删除按钮*/
 .pro_del {
-    font: normal 14px/35px "微软雅黑" ;
-    color: white;
+    font: normal 15px/30px "微软雅黑";
     width: 70px;
     height: 33px;
-    background: darkgoldenrod;
+    background: #03c;
     border-radius: 10px;
-    margin-top: 17px;
-    margin-left: 35%;
+    margin-top: 15px;
+    margin-left: 60px;
+}
+.pro_info a{
+    color: white;
 }
 /*内容区域添加按钮样式*/
 .pro_info img{
-    margin-top: 45px;
-    width: 100px;
-    height: 100px;
+    margin-top: 60px;
+    width: 70px;
+    height: 70px;
 }
 
 /*弹窗样式*/
+
+.back{
+    width: 100%;
+    height: 900px;
+    background: rgba(146, 151, 162, 0.5);
+    position: fixed;
+
+    top:0;
+    left: 0;
+
+}
 .alter{
     position: fixed;
-    left: 40%;
-    top: 25%;
-    height: 50%;
-    width: 22%;
+    left: 35%;
+    top: 120px;
+    height: 470px;
+    width: 450px;
     background: white;
     border: solid 1px #9297a2;
     border-radius: 20px;
@@ -203,17 +210,13 @@ body{
     margin-left: 8%;
 }
 .pro_desc textarea{
-    margin-left: 25%;
-    width: 240px;
-    height: 70px;
+    margin-left: 93px;
+    width: 265px;
+    height: 80px;
     border: solid 1px black;
     border-radius: 5px;
     padding-left: 5px;
     font: normal 12px/30px "Microsoft YaHei UI";
-
-
-
-
 }
 .pro_tj{
      text-align: center;
@@ -228,4 +231,10 @@ body{
      border: solid 1px white;
      font: normal 15px/30px "Microsoft YaHei UI";
      color: white;
+}
+.hide{
+    display: none;
+}
+.show{
+    display: block;
 }
