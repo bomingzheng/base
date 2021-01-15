@@ -45,8 +45,8 @@ def md5_encryption_salt(*args, salt='qaz'):      # md5加盐，盐的默认值�
 if __name__ == '__main__':
     nonce = "123456"
     timestamp = "1583868236"
-    client_id = "100074085"
-    token = "i9h3cblxzKjaQgdlbK"
+    client_id = "10002814"
+    token = "2z8De5vbtJh9JEGPk2"
 
     print(sha1_encryption(token, timestamp, client_id, nonce))
     print(md5_encryption(token, timestamp, client_id, nonce))

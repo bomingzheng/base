@@ -2,9 +2,162 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Title</title>
+	<title>选项卡</title>
+	<script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<style type="text/css">
+		.cars{
+			height: 60px;
+			margin: 20px auto 0 30px;
+		}
+		.car_title li{
+			width: 150px;
+			font:normal 18px/60px "微软雅黑";
+			float: left;
+			margin-right: 10px;
+			text-align:center;
+		}
+		.car_title .cra{
+			background: #BBBBBB;
+		}
+		.content{
+			width: 100%;
+			float: left;
+		}
+		.content div{
+			background: #999999;
+			width: 100%;
+			height: 500px;
+			font:normal 15px/50px "微软雅黑";
+			display: none;
+		}
+		.content .active{
+			display: block;
+		}
+		.tables tr{
+			height: 40px;
+
+		}
+		.tables th{
+			height: 40px;
+			border: solid 2px #0033cc;
+		}
+		.tables td{
+			height: 40px;
+			border: solid 2px #0033cc;
+		}
+		.tables input{
+			line-height: 25px;
+			width: 97%;
+		}
+
+	</style>
+
 </head>
 <body>
+<div class="cars" >
+	<div class="car_title" >
+		<ul>
+			<li class="cra">请求头</li>
+			<li>请求体</li>
+			<li>响应体</li>
+		</ul>
+	</div>
+	<div class="content">
+		<div class="active">
+			<input type="button" class="add_head" value="添加头信息">
+			<input type="button" class="del_head" value="移除头信息">
 
+				<table class="tables">
+				<tr>
+					<th style="width: 10%">选择</th>
+					<th style="width: 30%">keys</th>
+					<th style="width: 60%">values</th>
+				</tr>
+				<tr>
+					<td><input type="radio"></td>
+					<td><input type="text"></td>
+					<td><input type="text"></td>
+				</tr>
+		</table>
+
+
+		</div>
+		<div>
+			<input type="button" class="add_head" value="添加头信息">
+			<input type="button" class="del_head" value="移除头信息">
+
+				<table class="tables">
+				<tr>
+					<th style="width: 10%">选择</th>
+					<th style="width: 15%">type</th>
+					<th style="width: 35%">keys</th>
+					<th style="width:40%">values</th>
+				</tr>
+				<tr>
+					<td><input type="radio"></td>
+					<td><input type="text"></td>
+					<td><input type="text"></td>
+					<td><input type="text"></td>
+
+				</tr>
+		</table>
+		</div>
+		<div><input type="button" class="add_head" value="添加头信息">
+			<input type="button" class="del_head" value="移除头信息">
+
+				<table class="tables">
+				<tr>
+					<th style="width: 10%">选择</th>
+					<th style="width: 30%">keys</th>
+					<th style="width: 60%">values</th>
+				</tr>
+				<tr>
+					<td><input type="radio"></td>
+					<td><input type="text"></td>
+					<td><input type="text"></td>
+				</tr>
+		</table></div>
+
+	</div>
+
+</div>
+<script type="text/javascript">
+	$(function () {
+		//选项卡
+		$(".car_title li").click(function () {
+			$(this).addClass("cra").siblings().removeClass("cra");  //点击元素添加背景属性，同胞去除背景的属性
+			// 根据点击元素集的索引，点击元素添加激活属性，同胞去除激活的属性
+			$(".content div").eq($(this).index()).addClass("active").siblings().removeClass("active");
+
+			//添加参数行
+			$(".add_head").click(function (){
+				// 获取参数行的内容，根据内容添加对应参数行
+				var tr = "<tr>"+$(this).siblings("table").find("tr").eq(-1).html()+"</tr>";
+				$(this).siblings("table").append(tr);})
+			//删除头信息
+			// $(".del_head").click(function () {
+			// 	$(this).siblings("table").find("tr").eq(-1).remove()
+			//
+			// })
+			$(".del_head").click(function () {
+				var check = $(":checked");  //获取复选框
+				var table = $(this).siblings("table");  //获取table标签
+				if (table.find("tr").length>2) {  //判断table标签下的tr长度是否大于2
+					// 删除处理
+					if(check.length>0){   // 判断复选框是否选中
+						check.parent().parent().remove()
+				}else{
+						table.find("tr").eq(-1).remove()
+					}
+		}
+
+
+			 });
+
+		})})
+
+
+</script>
 </body>
 </html>
