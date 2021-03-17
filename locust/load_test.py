@@ -26,37 +26,39 @@ class MyTaskCase(TaskSet):
 
     @task
     def get_vip_time(self):   # 一个方法,方法名称可以自己改
-        url = '/cpsconsume/portal/1305'   # 接口请求的URL地址
+        url = '/cpsconsume/portal/1203'   # 接口请求的URL地址
         # 定义请求头为类变量，这样其他任务也可以调用该变量
         self.headers = {"Content-Type": "application/json"}
-        # self.user_id = "locust_" + str(random.randint(110000, 100000))"
-        data = {"user_id": 110000002, "dd": 0, "book_id": 123}  # post请求的 请求体
-        # 使用self.client发起请求，请求的方法根据接口实际选择
-        # catch_response 值为True 允许为失败 ， name设置任务标签名称   -----可选参数
+        data = {"user_id": 110000123}  # post请求的 请求体
+        # 使用self.client发起请求，catch_response 值为True 允许为失败 ， name（可选参数）设置任务标签名称
         rsp = self.client.post(url, json=data, headers=self.headers)
-        print(rsp.json())
+        try:
+            assert "万古书屋" == rsp.json()["data"][0]["chapter_name"]
+        except AssertionError as e:
+            print(e)
+            raise
 
-    @task  # 装饰器，说明下面是一个任务
-    def login_(self):
-        url = '/erp/loginIn'  # 接口请求的URL地址
-        data = {"name": self.user, "pwd": self.pwd}
-        rsp = self.client.post(url, json=data, headers=self.headers,
-                               catch_response=True)  # 使用self.client发起请求，请求的方法 选择post
-        self.token = rsp.json()['token']    # 提取响应json 中的信息，定义为 类变量
-        if rsp.status_code == 200 and rsp.json()['code'] == "200":
-            rsp.success()
-        else:
-            rsp.failure('login_ 接口失败！')
-
-    @task  # 装饰器，说明下面是一个任务
-    def getuser_(self):
-        url = '/erp/user'  # 接口请求的URL地址
-        headers = {"Token": self.token}  # 引用上一个任务的 类变量值   实现参数关联
-        rsp = self.client.get(url, headers=headers, catch_response=True)  # 使用self.client发起请求，请求的方法 选择 get
-        if rsp.status_code == 200:
-            rsp.success()
-        else:
-            rsp.failure('getuser_ 接口失败！')
+    # @task  # 装饰器，说明下面是一个任务
+    # def login_(self):
+    #     url = '/erp/loginIn'  # 接口请求的URL地址
+    #     data = {"name": self.user, "pwd": self.pwd}
+    #     rsp = self.client.post(url, json=data, headers=self.headers,
+    #                            catch_response=True)  # 使用self.client发起请求，请求的方法 选择post
+    #     self.token = rsp.json()['token']    # 提取响应json 中的信息，定义为 类变量
+    #     if rsp.status_code == 200 and rsp.json()['code'] == "200":
+    #         rsp.success()
+    #     else:
+    #         rsp.failure('login_ 接口失败！')
+    #
+    # @task  # 装饰器，说明下面是一个任务
+    # def getuser_(self):
+    #     url = '/erp/user'  # 接口请求的URL地址
+    #     headers = {"Token": self.token}  # 引用上一个任务的 类变量值   实现参数关联
+    #     rsp = self.client.get(url, headers=headers, catch_response=True)  # 使用self.client发起请求，请求的方法 选择 get
+    #     if rsp.status_code == 200:
+    #         rsp.success()
+    #     else:
+    #         rsp.failure('getuser_ 接口失败！')
 
     # 结束方法， 相当于teardown
     def on_stop(self):
@@ -71,5 +73,8 @@ class UserRun(HttpUser):
 
 
 if __name__ == '__main__':
-    os.system("locust -f load_test.py --no-web -t 20s")
+    os.system(
+
+        "locust -f load_test.py --host=http://192.168.0.251:8188 --headless -u 100 -r 10  -t 5m  --csv=test.csv"
+    )
 
