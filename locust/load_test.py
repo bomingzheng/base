@@ -70,11 +70,12 @@ class MyTaskCase(TaskSet):
 class UserRun(HttpUser):
     tasks = [MyTaskCase]  # 定义固定的 task_set  指定前面的任务类名称
     wait_time = between(0, 5)  # 设置运行过程中间隔时间 需要从locust中 引入 between
+    stop_timeout = 0.05
 
 
 if __name__ == '__main__':
     os.system(
 
-        "locust -f load_test.py --host=http://192.168.0.251:8188 --headless -u 100 -r 10  -t 5m  --csv=test.csv"
+        "locust -f load_test.py --host=http://192.168.0.251:8188 --headless -u 100 -r 10  -t 5m"
     )
 
