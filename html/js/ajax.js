@@ -54,19 +54,42 @@ $(function (){
 		需要后台服务器支持ajax跨域才可以，就加个jsonp的值数据会变成jsMIME类型的参数进行解析
 		*/
 		//进入页面直接发送ajax请求
-$.ajax({
+$.ajax({  // 获取项目，添加项目的列表
 	url:'http:..www.baidu.com',
 	method: 'POST',
 	dataType: 'json',
 }).done(function (data){
-		let pro = $(".pro");
-		let res = data.data;   //当获取的数据有多条需要遍历
-		for(let i in res) {
-			let option = '<option value="res[i].id+">'+ res[i].title+'</option>'
-			pro.append(option )
+		let pro = $("#pro");     // 获取需要添加元素的节点
+		let res = data.data;    //当获取的数据，该数据是个合集
+		for(let i in res) {   //遍历该合集
+			let option = '<option value="+res[i].id+">'+ res[i].title+'</option>';  // 把遍历的数据放在下拉框标签里面
+			pro.append(option )    // 把获取的数据添加到选择的节点
 		}
-
-})
+		// change事件: 检测元素值，是否发生变化
+		pro.change(function (){
+			//检测元素发生变化，触发函数，向接口列表发送ajax请求
+			//pro_id  项目id，先获取项目id
+			let pro_id = pro.val()   //项目值赋值给项目id
+			$.ajax({
+				url: '/interface',
+				data:{
+					'pro_id':pro_id
+				},
+				type:'POST',
+				dataType:'json'
+			}).done(function (data){
+				let inter = $('#interface');  	// 获取借口下拉框的标签
+				if (data.code === '1'){    		// 如果返回值等于1
+					inter.empty()  				// 清空该标签的内容，否则会把当前信息和添加的新信息同时展示
+					let res = data.data;   		//获取返回的数据。遍历然后加载到页面
+					for(let i=0;i<res.length;i++){ //判断获取的返回数据，循环获取
+						let option = '<option value="">'+res[i].name+'</option>'  // 把接口名字显示在下拉框
+						inter.append(option)   //把构造数据显示在下拉框标签
+					}}})})
+	// 熟悉jquery的选择器，去页面获取请求数据
+	// 发送ajax请求
+	// 把返回数据加载到页面，通过jquery操作页面元素和属性
+});
 
 
 

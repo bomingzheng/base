@@ -791,7 +791,6 @@ def mx():
 
 """
 q.put(1)                    # 往队列插入数据，如果block为true，timeout为等待，如果队列满了一直都塞，直到超时
-q.put(123)
 # q.put(11, block=False)     # block为false不等待，队列满了直接报错
 q.put_nowait(12)             # 等同put的block=false
 q.join()                     # 判断队列任务是否执行完毕，执行完毕才会向下执行，否则在此堵塞
@@ -954,8 +953,8 @@ g2 = greenlet.greenlet(wsd)
 
 g3 = gevent.spawn(wes)   # 创建两个协程并执行，协程存在线程之中，线程默认不等待协程执行
 g4 = gevent.spawn(wsd)   # 第一个参数执行任务，
-# g3.join()               # 让线程等待协程，时间参数不传默认等待协程执行完毕
-# g4.join()                # 两个任务不是同步执行，先执行完任务1在执行任务2，默认不切换
+g3.join()               # 让线程等待协程，时间参数不传默认等待协程执行完毕
+g4.join()                # 两个任务不是同步执行，先执行完任务1在执行任务2，默认不切换
 
 
 def time_count(func):                           # 计算时间的装饰器
