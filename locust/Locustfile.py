@@ -24,7 +24,7 @@ class MyTaskCase(TaskSet):
                 "timestamp": 1583868236,
                 "signaure": "ccdb633eca57bf4bd8c63c1060c3747f4212b53a"
             }
-         with self.client.post(url, json=data, headers=headers, catch_response=True) as res:
+        with self.client.post(url, json=data, headers=headers, catch_response=True) as res:
             try:
                 if (res.json()["error_code"] == 0 and isinstance(res.json()['data'], dict)) or\
                         (res.json()["error_code"] == 10007 and isinstance(res.json()['data'], list)):
@@ -45,4 +45,3 @@ class UserRun(HttpUser):
 
 if __name__ == '__main__':
     os.system("locust -f Locustfile.py")
-
