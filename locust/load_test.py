@@ -24,24 +24,17 @@ class MyTaskCase(TaskSet):
                 "timestamp": 1583868236,
                 "signaure": "ccdb633eca57bf4bd8c63c1060c3747f4212b53a"
             }
-        with self.client.post(url, json=data, headers=headers, catch_response=True) as res:
+         with self.client.post(url, json=data, headers=headers, catch_response=True) as res:
             try:
-                if res.json()["error_code"] == 0:
-                    if isinstance(res.json()['data'], dict):
-                        res.success()
-                    else:
-                        res.failure("断言失败，未包含 brand_name")
+                if (res.json()["error_code"] == 0 and isinstance(res.json()['data'], dict)) or\
+                        (res.json()["error_code"] == 10007 and isinstance(res.json()['data'], list)):
+                    res.success()
 
-                elif res.json()["error_code"] == 10007:
-                    if isinstance(res.json()['data'], list):
-                        res.success()
-                    else:
-                        res.failure("断言失败，未包含 brand_name")
                 else:
                     res.failure("code码获取错误")
-
             except AssertionError as e:
-                res.failure("获取数据失败{}".format(e))
+                print(res.text)
+                res.failure("获取数据失败", e)
 
 
 class UserRun(HttpUser):
@@ -51,5 +44,5 @@ class UserRun(HttpUser):
 
 
 if __name__ == '__main__':
-    os.system("locust -f 1.py")
+    os.system("locust -f Locustfile.py")
 
