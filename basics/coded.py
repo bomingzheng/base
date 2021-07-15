@@ -94,8 +94,8 @@ def bs64_encrypt(*args):
 if __name__ == '__main__':
     nonce = "123456"
     timestamp = "1583868236"
-    client_id = "10002814"
-    token = "2z8De5vbtJh9JEGPk2"
+    client_id = "10005589"
+    token = "aNcovnMGkNuklvuP6P122"
 
     print(sha1_encrypt(token, timestamp, client_id, nonce))
     print(md5_encrypt(token, timestamp, client_id, nonce))
